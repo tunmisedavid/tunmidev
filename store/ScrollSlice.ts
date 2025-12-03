@@ -5,7 +5,7 @@ type scrollState = {
 }
 
 const initialState : scrollState = {
-  active: ""
+  active: "about"
 }
 
 
