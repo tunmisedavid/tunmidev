@@ -86,7 +86,7 @@ const Navbar = () => {
                   <motion.div
                     layoutId="activeIndicator"
                     className="absolute inset-0 z-0 rounded-2xl bg-[#4a4e69]  "
-                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    transition={{ type: "tween", stiffness: 300, damping: 20 }}
                   />
                 )}
               </button>
