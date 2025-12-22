@@ -43,7 +43,7 @@ const Sidebar = ({ navLinks, handleScroll, active }: navLinksProp) => {
 
                   {active === link.href && (
                     <motion.div
-                      layoutId="activeIndicator"
+                      layoutId="Indicator"
                       className="absolute before:h-6 before:w-8 before:absolute before:bg-[#4cc9f0] before:shadow-[-8px_5px_0] before:shadow-[#4a4e69] before:left-0 before:bottom-full before:rounded-bl-[22px] after:rounded-tl-[22px] after:absolute after:h-6 after:w-8 after:bg-[#4cc9f0] after:left-0 after:top-full after:shadow-[#4a4e69] after:shadow-[-8px_-5px_0] inset-0 z-0 bg-[#4a4e69]  "
                       transition={{
                         type: "spring",
