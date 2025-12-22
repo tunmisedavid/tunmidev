@@ -9,6 +9,8 @@ import ThomasImg from "@/public/thomasdev-img.png"
 import DevImg from "@/public/developerPort-img.png";
 import TechImg from "@/public/technologist-img.png";
 import CinemaImg from "@/public/cinema.png";
+import TaskImg from "@/public/taskapp-img.png";
+import Taskmate from "@/public/taskmate.png";
 
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
@@ -16,6 +18,7 @@ import { FaGithub } from "react-icons/fa";
 const Projects = () => {
   const project1langs = ["typescript", "nextjs", "supabase", "shadcn"];
   const project2langs = ["javascript", "react", "framer"];
+  const project3langs = ["javascript", "html", "css", "localstorage"];
 
   return (
     <div className="bg-[#1b263b] py-14 xl:py-24 ">
@@ -77,9 +80,25 @@ const Projects = () => {
             imageSrc={CinemaImg}
             projectName="Cinematewe"
             description="This is react portolio app. clean UI , easy login and signup and become a buyer or a seller with secured payment.   "
-            githubIo="https://github.com/tunmisedavid/cinematewe"
+            githubIo="https://github.com/tunmisedavid/taskApp"
             languages={project1langs}
             domain={"https://cinematewe.netlify.app/"}
+          />
+          <ProjectCards
+            imageSrc={TaskImg}
+            projectName="TaskApp"
+            description="This is react task app. clean UI , create tasks and follow up on them   "
+            githubIo="https://github.com/tunmisedavid/taskApp"
+            languages={project3langs}
+            domain={"https://taskappmate.netlify.app/"}
+          />
+          <ProjectCards
+            imageSrc={Taskmate}
+            projectName="TaskApp"
+            description="This is react task app. clean UI , create tasks and follow up on them   "
+            githubIo="https://github.com/tunmisedavid/taskmate"
+            languages={project3langs}
+            domain={"https://addtaskmate.netlify.app/"}
           />
         </div>
       </Container>

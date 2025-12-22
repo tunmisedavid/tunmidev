@@ -14,7 +14,7 @@ export const useScroll = () => {
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
-    }
+    };
   };
 
   return { handleScroll };

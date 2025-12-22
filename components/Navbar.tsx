@@ -10,7 +10,7 @@ import Link from "next/link";
 import Sidebar from "./Sidebar";
 
 import { useScroll } from "@/hooks/UseScroll";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { setActive } from "@/store/ScrollSlice";
 
@@ -18,6 +18,7 @@ import { setActive } from "@/store/ScrollSlice";
 const Navbar = () => {
   const {handleScroll} = useScroll();
   const active = useSelector((state: RootState)  => state.scroll.active)
+  const dispatch = useDispatch();
   // const { theme, setTheme } = useTheme();
 
   const navLinks = [
@@ -39,7 +40,7 @@ const Navbar = () => {
           const offsetTop = el.offsetTop;
           const offsetHeight = el.offsetHeight;
           if (scrollY > offsetTop && scrollY < offsetTop + offsetHeight) {
-            setActive(ref.href);
+            dispatch(setActive(ref.href));
             break;
           }
         }
@@ -47,7 +48,7 @@ const Navbar = () => {
     };
     window.addEventListener("scroll", handleScrollToSection);
     return () => window.removeEventListener("scroll", handleScrollToSection);
-  }, []);
+  }, [dispatch, navLinks]);
 
 
   return (
