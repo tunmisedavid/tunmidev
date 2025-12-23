@@ -12,19 +12,19 @@ export default function Home() {
         <Navbar />
       </div>
       <div>
-        <div id="about">
+        <div id="about" className="scroll-mt-14">
           <About />
         </div>
-        <div id="certification" className="">
+        <div id="certification" className="scroll-mt-14">
           <Certs />
         </div>
-        <div id="projects" className="">
+        <div id="projects" className="scroll-mt-14">
           <Projects />
         </div>
-        <div id="skills" className="">
+        <div id="skills" className="scroll-mt-14">
           <Skills />
         </div>
-        <div id="contact" className="">
+        <div id="contact" className="scroll-mt-14">
           <Contact />
         </div>
       </div>

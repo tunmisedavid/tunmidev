@@ -5,7 +5,6 @@ import { motion } from "motion/react";
 import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 
-
 type navLinksProp = {
   navLinks: { tab: string; href: string }[];
   handleScroll: (id: string) => void;
@@ -37,7 +36,12 @@ const Sidebar = ({ navLinks, handleScroll, active }: navLinksProp) => {
                 <button
                   className="text-white font-sans w-full relative flex justify-end p-2 "
                   key={i}
-                  onClick={() => handleScroll(link.href)}
+                  onClick={() => {
+                    setOpen(false);
+                    setTimeout(() => {
+                      handleScroll(link.href);
+                    }, 150);
+                  }}
                 >
                   <span className=" relative z-10 ">{link.tab}</span>
 

@@ -14,10 +14,10 @@ export const useScroll = () => {
     const el = document.getElementById(id);
     if (!el) return;
     const yOffset = -56
-    const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-    window.scrollTo({
+    const y = el.getBoundingClientRect().top + document.documentElement.scrollTop + yOffset;
+    document.documentElement.scrollTo({
       top: y,
-      behavior: 'smooth'
+      behavior: 'smooth',
     })
   };
 
