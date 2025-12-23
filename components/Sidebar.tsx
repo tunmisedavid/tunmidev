@@ -9,15 +9,17 @@ type navLinksProp = {
   navLinks: { tab: string; href: string }[];
   handleScroll: (id: string) => void;
   active: string;
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const Sidebar = ({ navLinks, handleScroll, active }: navLinksProp) => {
-  const [open, setOpen] = useState(false);
+const Sidebar = ({ navLinks, handleScroll, active, open, setOpen }: navLinksProp) => {
+  // const [open, setOpen] = useState(false);
 
   return (
     <Drawer.Root open={open} size="xs" onOpenChange={(e) => setOpen(e.open)}>
       <Drawer.Trigger asChild>
-        <Button variant="outline" size="sm">
+        <Button variant="outline" color={'white'} size="sm">
           <GiHamburgerMenu />
         </Button>
       </Drawer.Trigger>

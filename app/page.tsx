@@ -12,6 +12,7 @@ export default function Home() {
         <Navbar />
       </div>
       <div>
+        <div id="top-sentinel" className="h-px" />
         <div id="about" className="scroll-mt-14">
           <About />
         </div>

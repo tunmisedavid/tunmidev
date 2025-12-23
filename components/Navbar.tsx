@@ -13,14 +13,17 @@ import { useScroll } from "@/hooks/UseScroll";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { setActive } from "@/store/ScrollSlice";
+import { useScrollSpy } from "@/hooks/UseScrollSpy";
 
 
 const Navbar = () => {
   const {handleScroll} = useScroll();
   const active = useSelector((state: RootState)  => state.scroll.active)
   const dispatch = useDispatch();
+  const [open, setOpen] = useState(false);
+  
   // const { theme, setTheme } = useTheme();
-
+  
   const navLinks = [
     { tab: "About", href: "about" },
     { tab: "Certs", href: "certification" },
@@ -28,22 +31,25 @@ const Navbar = () => {
     { tab: "Skills", href: "skills" },
     { tab: "Contact", href: "contact" },
   ];
+  // useScrollSpy(navLinks, !open)
 
 
   useEffect(() => {
     const handleScrollToSection = () => {
+      if (open) return;
       const scrollY = window.scrollY + window.innerHeight / 2;
 
       for (const [_, ref] of Object.entries(navLinks)) {
         const el = document.getElementById(ref.href);
-        if (el) {
+        if (!el) return;
+        // if (el) {
           const offsetTop = el.offsetTop;
           const offsetHeight = el.offsetHeight;
-          if (scrollY > offsetTop && scrollY < offsetTop + offsetHeight) {
+          if (scrollY >= offsetTop && scrollY < offsetTop + offsetHeight) {
             dispatch(setActive(ref.href));
             break;
           }
-        }
+        // }
       }
     };
     window.addEventListener("scroll", handleScrollToSection);
@@ -71,7 +77,13 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="lg:hidden">
-          <Sidebar navLinks={navLinks} active={active} handleScroll={handleScroll} />
+          <Sidebar
+            navLinks={navLinks}
+            active={active}
+            handleScroll={handleScroll}
+            open={open}
+            setOpen={setOpen}
+          />
         </div>
         <div className="hidden lg:block">
           <div className="text-white flex gap-2 text-lg">

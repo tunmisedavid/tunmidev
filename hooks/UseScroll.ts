@@ -19,6 +19,13 @@ export const useScroll = () => {
       top: y,
       behavior: 'smooth',
     })
+
+    // const el = document.getElementById(id);
+    // if( !el) return;
+    // el.scrollIntoView({
+    //   behavior: "smooth",
+    //   block: "start"
+    // })
   };
 
   return { handleScroll };
