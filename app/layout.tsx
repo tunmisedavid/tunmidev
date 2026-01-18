@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import {Providers} from "./providers";
 import { Provider } from "@/components/ui/provider";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,7 +25,11 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`antialiased ${inter.variable}`}>
         <Provider>
-          <Providers>{children}</Providers>
+          <Providers>
+            <TooltipProvider delayDuration={100}>
+            {children}
+            </TooltipProvider>
+          </Providers>
         </Provider>
       </body>
     </html>

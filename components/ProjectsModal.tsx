@@ -9,23 +9,22 @@ import { CiShare1 } from "react-icons/ci";
 import { ProjectCardsProps } from "./ProjectCards";
 import { useEffect } from "react";
 
-// import GitICon from "@/public/git-black.svg";
-
 const ProjectsModal = ({
   isOpen,
   setIsOpen,
   imageSrc,
   projectName,
   domain,
-  description,
+  features,
+  fullDesc,
   githubIo,
   languages,
 }: ProjectCardsProps) => {
-
   useEffect(() => {
-    isOpen ? document.body.style.overflow = "hidden" : document.body.style.overflow = ""
-  }, [isOpen])
-
+    isOpen
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "");
+  }, [isOpen]);
 
   return (
     <AnimatePresence>
@@ -60,7 +59,7 @@ const ProjectsModal = ({
             </div>
             <div className="p-4">
               <p className="text-white text-xl xl:text-2xl font-bold">
-                {projectName}{" "}
+                {projectName}
               </p>
               <div className="flex gap-1 pt-1">
                 {languages.map((lang, i) => {
@@ -72,18 +71,27 @@ const ProjectsModal = ({
                       {lang}
                     </p>
                   ) : (
-                    <span className="flex items-center gap-1 text-[#4cc9f0]">
-                      <p key={i} className="text-xs xl:text-sm capitalize ">
-                        {lang}
-                      </p>
+                    <span
+                      key={i}
+                      className="flex items-center gap-1 text-[#4cc9f0]"
+                    >
+                      <p className="text-xs xl:text-sm capitalize ">{lang}</p>
                       <hr className="w-2 h-[2px] bg-[#4cc9f0]   text-[#4cc9f0] " />
                     </span>
                   );
                 })}
               </div>
-              <p className="text-white text-xs xl:text-sm pt-4">
-                {description}{" "}
-              </p>
+              <p className="text-white text-xs xl:text-sm pt-4">{fullDesc}</p>
+              <div className=" mt-2 md:mt-3 xl:mt-5">
+                <p className="text-white  text-xl xl:text-2xl">Features</p>
+                <ul>
+                  {features?.map((feature, i) => (
+                    <li className="text-[#4cc9f0] text-xs xl:text-sm" key={i}>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
               <p className="text-white text-lg xl:text-xl pt-4 font-bold">
                 Project Links
               </p>

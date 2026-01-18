@@ -22,3 +22,4 @@ const scrollSlice = createSlice({
 
 export const  {setActive} = scrollSlice.actions;
 export default scrollSlice.reducer;
+
